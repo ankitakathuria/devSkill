@@ -5,10 +5,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-6">
       <div class="list-group">
         <div class="list-group-item note"
-          *ngFor=""
+          *ngFor="let note of notesList"
           (click)="selectNote(note)"
         >
           {{note.title}}
@@ -17,23 +17,23 @@
     </div>
     <div class="col-xs-6">
       <div>
-        <form>
+        <form #noteForm= "ngForm"(submit)="saveNote(noteForm.value); noteForm.resetForm()" >
           <div class="form-group">
             <label>Title:
-            <input class="note-title form-control" name="title" required></label>
+            <input class="note-title form-control" name="title" ngModel required></label>
             <div class="form-error">Field is required</div>
           </div>
           <div class="form-group">
             <label>Note:
-            <textarea class="note-body form-control" name="body"></textarea></label>
+            <textarea class="note-body form-control" ngModel name="body"></textarea></label>
           </div>
           <div class="form-group">
             <label>favorite:
-            <input type="checkbox" class="note-favorite" name="favorite"></label>
+            <input type="checkbox" class="note-favorite" ngModel name="favorite"></label>
           </div>
           <div class="form-group">
             <label>Color:
-            <input type="color" class="note-color" name="color"></label>
+            <input type="color" class="note-color" ngModel name="color"></label>
           </div>
           <div class="form-group">
             <button class="btn btn-success note-save">Save</button>
