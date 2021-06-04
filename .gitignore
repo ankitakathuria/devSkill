@@ -130,3 +130,6 @@ nbproject/private/
 .ionide
 .npm-debug.log
 tmp
+devskiller.marker
+IMPORTANT
+package-lock.json
